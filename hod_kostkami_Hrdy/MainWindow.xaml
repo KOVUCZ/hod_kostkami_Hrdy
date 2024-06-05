@@ -7,9 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
     <Window.Resources>
-        
-        <Storyboard x:Key="DotAnimation">
-            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.1" AutoReverse="True" RepeatBehavior="5x"/>
+        <!-- Storyboard for animating the dice -->
+        <Storyboard x:Key="DiceRollAnimation">
+            <!-- Rotate animation -->
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"
+                             From="0" To="360" Duration="0:0:0.5" RepeatBehavior="3x"/>
+
+            <!-- Translate animations -->
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)"
+                             From="0" To="20" Duration="0:0:0.1" AutoReverse="True" RepeatBehavior="15x"/>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.Y)"
+                             From="0" To="20" Duration="0:0:0.1" AutoReverse="True" RepeatBehavior="15x"/>
         </Storyboard>
     </Window.Resources>
     <Grid Background="Gray">
@@ -31,22 +39,64 @@
             </Grid.RowDefinitions>
 
             <Border BorderBrush="Black" BorderThickness="3" Margin="5" Grid.Row="0" Grid.Column="0">
-                <Canvas x:Name="Die1" Width="100" Height="100" Background="White"/>
+                <Canvas x:Name="Die1" Width="100" Height="100" Background="White">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
             </Border>
             <Border BorderBrush="Black" BorderThickness="3" Margin="5" Grid.Row="0" Grid.Column="1">
-                <Canvas x:Name="Die2" Width="100" Height="100" Background="White"/>
+                <Canvas x:Name="Die2" Width="100" Height="100" Background="White">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
             </Border>
             <Border BorderBrush="Black" BorderThickness="3" Margin="5" Grid.Row="0" Grid.Column="2">
-                <Canvas x:Name="Die3" Width="100" Height="100" Background="White"/>
+                <Canvas x:Name="Die3" Width="100" Height="100" Background="White">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
             </Border>
             <Border BorderBrush="Black" BorderThickness="3" Margin="5" Grid.Row="1" Grid.Column="0">
-                <Canvas x:Name="Die4" Width="100" Height="100" Background="White"/>
+                <Canvas x:Name="Die4" Width="100" Height="100" Background="White">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
             </Border>
             <Border BorderBrush="Black" BorderThickness="3" Margin="5" Grid.Row="1" Grid.Column="1">
-                <Canvas x:Name="Die5" Width="100" Height="100" Background="White"/>
+                <Canvas x:Name="Die5" Width="100" Height="100" Background="White">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
             </Border>
             <Border BorderBrush="Black" BorderThickness="3" Margin="5" Grid.Row="1" Grid.Column="2">
-                <Canvas x:Name="Die6" Width="100" Height="100" Background="White"/>
+                <Canvas x:Name="Die6" Width="100" Height="100" Background="White">
+                    <Canvas.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Canvas.RenderTransform>
+                </Canvas>
             </Border>
         </Grid>
         <Label Content="VIRTUÁLNÍ HOD KOSTKOU" HorizontalAlignment="Right" Height="66" Margin="0,0,203,338" Grid.RowSpan="3" VerticalAlignment="Bottom" Width="560" Background="#DDDCDC" FontSize="36" FontWeight="Bold"/>
