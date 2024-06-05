@@ -27,19 +27,38 @@ namespace hod_kostkami_Hrdy
 
         private void RollDice_Click(object sender, RoutedEventArgs e)
         {
-            AnimateDice(Die1);
-            AnimateDice(Die2);
-            AnimateDice(Die3);
-            AnimateDice(Die4);
-            AnimateDice(Die5);
-            AnimateDice(Die6);
+            string selectedAnimation = ((ComboBoxItem)AnimationComboBox.SelectedItem).Content.ToString();
+
+            AnimateDice(Die1, selectedAnimation);
+            AnimateDice(Die2, selectedAnimation);
+            AnimateDice(Die3, selectedAnimation);
+            AnimateDice(Die4, selectedAnimation);
+            AnimateDice(Die5, selectedAnimation);
+            AnimateDice(Die6, selectedAnimation);
         }
 
-        private void AnimateDice(Canvas canvas)
+        private void AnimateDice(Canvas canvas, string animationType)
         {
-            Storyboard storyboard = (Storyboard)FindResource("DiceRollAnimation");
-            storyboard.Completed += (s, e) => DrawDie(canvas, random.Next(1, 7));
-            storyboard.Begin(canvas);
+            Storyboard storyboard = null;
+
+            switch (animationType)
+            {
+                case "Jednoduchá":
+                    storyboard = (Storyboard)FindResource("SimpleAnimation");
+                    break;
+                case "Realistická":
+                    storyboard = (Storyboard)FindResource("RealisticAnimation");
+                    break;
+                case "Šílená":
+                    storyboard = (Storyboard)FindResource("CrazyAnimation");
+                    break;
+            }
+
+            if (storyboard != null)
+            {
+                storyboard.Completed += (s, e) => DrawDie(canvas, random.Next(1, 7));
+                storyboard.Begin(canvas);
+            }
         }
 
         private void DrawDie(Canvas canvas, int value)
