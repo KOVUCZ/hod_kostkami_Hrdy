@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:hod_kostkami_Hrdy"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
+    <Grid Background="Gray">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="353*"/>
         </Grid.RowDefinitions>
-        <Button Content="HOĎ KOSTKAMI!" Click="RollDice_Click" HorizontalAlignment="Center" Margin="0,10,0,360" Width="224" Grid.RowSpan="2"/>
-        <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button Content="HOĎ KOSTKOU" Click="RollDice_Click" HorizontalAlignment="Left" Margin="602,0,0,338" Grid.Row="1" Width="161" FontSize="20" Height="66" VerticalAlignment="Bottom" Grid.RowSpan="2" FontWeight="Bold" />
+        <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -23,12 +24,25 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Canvas x:Name="Die1" Grid.Row="0" Grid.Column="0" Width="100" Height="100" Background="White" />
-            <Canvas x:Name="Die2" Grid.Row="0" Grid.Column="1" Width="100" Height="100" Background="White" />
-            <Canvas x:Name="Die3" Grid.Row="0" Grid.Column="2" Width="100" Height="100" Background="White" />
-            <Canvas x:Name="Die4" Grid.Row="1" Grid.Column="0" Width="100" Height="100" Background="White" />
-            <Canvas x:Name="Die5" Grid.Row="1" Grid.Column="1" Width="100" Height="100" Background="White" />
-            <Canvas x:Name="Die6" Grid.Row="1" Grid.Column="2" Width="100" Height="100" Background="White" />
+            <Border BorderBrush="Black" BorderThickness="3" Margin="5" Grid.Row="0" Grid.Column="0">
+                <Canvas x:Name="Die1" Width="100" Height="100" Background="White"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="3" Margin="5" Grid.Row="0" Grid.Column="1">
+                <Canvas x:Name="Die2" Width="100" Height="100" Background="White"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="3" Margin="5" Grid.Row="0" Grid.Column="2">
+                <Canvas x:Name="Die3" Width="100" Height="100" Background="White"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="3" Margin="5" Grid.Row="1" Grid.Column="0">
+                <Canvas x:Name="Die4" Width="100" Height="100" Background="White"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="3" Margin="5" Grid.Row="1" Grid.Column="1">
+                <Canvas x:Name="Die5" Width="100" Height="100" Background="White"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="3" Margin="5" Grid.Row="1" Grid.Column="2">
+                <Canvas x:Name="Die6" Width="100" Height="100" Background="White"/>
+            </Border>
         </Grid>
+        <Label Content="VIRTUÁLNÍ HOD KOSTKOU" HorizontalAlignment="Right" Height="66" Margin="0,0,203,338" Grid.RowSpan="3" VerticalAlignment="Bottom" Width="560" Background="#DDDCDC" FontSize="36" FontWeight="Bold"/>
     </Grid>
 </Window>
