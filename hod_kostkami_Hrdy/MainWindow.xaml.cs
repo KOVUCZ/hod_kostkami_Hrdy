@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace hod_kostkami_Hrdy
 {
@@ -26,23 +27,30 @@ namespace hod_kostkami_Hrdy
 
         private void RollDice_Click(object sender, RoutedEventArgs e)
         {
-            DrawDie(Die1, random.Next(1, 7));
-            DrawDie(Die2, random.Next(1, 7));
-            DrawDie(Die3, random.Next(1, 7));
-            DrawDie(Die4, random.Next(1, 7));
-            DrawDie(Die5, random.Next(1, 7));
-            DrawDie(Die6, random.Next(1, 7));
+            AnimateDice(Die1);
+            AnimateDice(Die2);
+            AnimateDice(Die3);
+            AnimateDice(Die4);
+            AnimateDice(Die5);
+            AnimateDice(Die6);
+        }
+
+        private void AnimateDice(Canvas canvas)
+        {
+            Storyboard storyboard = (Storyboard)FindResource("DotAnimation");
+            storyboard.Completed += (s, e) => DrawDie(canvas, random.Next(1, 7));
+            storyboard.Begin(canvas);
         }
 
         private void DrawDie(Canvas canvas, int value)
         {
             canvas.Children.Clear();
 
-            // Common dot properties
+            
             double dotRadius = 20;
             SolidColorBrush dotBrush = new SolidColorBrush(Colors.Black);
 
-            // Helper function to create a dot
+            
             Ellipse CreateDot(double x, double y) => new Ellipse
             {
                 Width = dotRadius,
@@ -55,7 +63,7 @@ namespace hod_kostkami_Hrdy
             double centerY = canvas.Height / 2;
             double offset = canvas.Width / 4;
 
-            // vypis kostky podle vygenerovane hodnoty
+            
             if (value == 1 || value == 3 || value == 5)
             {
                 canvas.Children.Add(CreateDot(centerX, centerY));

@@ -6,6 +6,12 @@
         xmlns:local="clr-namespace:hod_kostkami_Hrdy"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
+    <Window.Resources>
+        
+        <Storyboard x:Key="DotAnimation">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.1" AutoReverse="True" RepeatBehavior="5x"/>
+        </Storyboard>
+    </Window.Resources>
     <Grid Background="Gray">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
