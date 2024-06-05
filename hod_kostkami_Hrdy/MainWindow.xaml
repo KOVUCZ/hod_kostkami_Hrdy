@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
     <Window.Resources>
-        <!-- Simple animation -->
+
         <Storyboard x:Key="SimpleAnimation">
             <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.1" AutoReverse="True" RepeatBehavior="5x"/>
         </Storyboard>
 
-        <!-- Realistic animation -->
+
         <Storyboard x:Key="RealisticAnimation">
             <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"
                              From="0" To="360" Duration="0:0:0.5" RepeatBehavior="3x"/>
@@ -22,7 +22,7 @@
                              From="0" To="20" Duration="0:0:0.1" AutoReverse="True" RepeatBehavior="15x"/>
         </Storyboard>
 
-        <!-- Crazy animation -->
+
         <Storyboard x:Key="CrazyAnimation">
             <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"
                              From="0" To="1440" Duration="0:0:1" RepeatBehavior="1x"/>
@@ -127,6 +127,6 @@
             </Border>
         </Grid>
         <Label Content="VIRTUÁLNÍ HOD KOSTKOU" HorizontalAlignment="Right" Height="66" Margin="0,0,203,338" Grid.RowSpan="3" VerticalAlignment="Bottom" Width="560" Background="#DDDCDC" FontSize="36" FontWeight="Bold"/>
-        <Label Content="TYP ANIMACE:" Background="#DDDCDC" HorizontalAlignment="Left" Height="46" Margin="350,268,0,0" Grid.Row="2" VerticalAlignment="Top" Width="207" FontWeight="Bold" FontSize="25"/>
+        <Label Content="TYP ANIMACE:" Background="#DDDCDC" HorizontalAlignment="Left" Height="46" Margin="329,269,0,0" Grid.Row="2" VerticalAlignment="Top" Width="207" FontWeight="Bold" FontSize="25"/>
     </Grid>
 </Window>
