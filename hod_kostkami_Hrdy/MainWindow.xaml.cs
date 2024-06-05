@@ -39,7 +39,7 @@ namespace hod_kostkami_Hrdy
             canvas.Children.Clear();
 
             // Common dot properties
-            double dotRadius = 10;
+            double dotRadius = 20;
             SolidColorBrush dotBrush = new SolidColorBrush(Colors.Black);
 
             // Helper function to create a dot
@@ -55,7 +55,7 @@ namespace hod_kostkami_Hrdy
             double centerY = canvas.Height / 2;
             double offset = canvas.Width / 4;
 
-            // Draw dots based on die value
+            // vypis kostky podle vygenerovane hodnoty
             if (value == 1 || value == 3 || value == 5)
             {
                 canvas.Children.Add(CreateDot(centerX, centerY));
